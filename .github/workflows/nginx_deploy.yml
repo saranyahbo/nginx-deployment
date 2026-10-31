@@ -30,5 +30,8 @@ jobs:
         REPOSITORY: learn-eks
         IMAGE_TAG: ${{ github.sha }}
       run: |
-        docker build -f docker/Dockerfile -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
+        docker build -f docker/Dockerfile \
+          -t $REGISTRY/$REPOSITORY:$IMAGE_TAG \
+          -t $REGISTRY/$REPOSITORY:latest .
         docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        docker push $REGISTRY/$REPOSITORY:latest
