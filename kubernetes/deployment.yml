@@ -17,7 +17,7 @@ spec:
     spec: 
       containers:
         - name: frontend
-          image: 598206844002.dkr.ecr.us-east-1.amazonaws.com/learn-eks:${GITHUB_SHA}
+          image: 598206844002.dkr.ecr.us-east-1.amazonaws.com/learn-eks:1a8d2ef1dd005a5bf0018886b97e4d05b38fa619
           ports:
             - containerPort: 80
             
