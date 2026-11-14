@@ -1,8 +1,7 @@
-ARG AIRFLOW_VERSION=3.4.0
-FROM apache/airflow:${AIRFLOW_VERSION}
+FROM apache/airflow:3.4.0
 
-COPY docker/requirements.txt /tmp/requirements.txt
+USER airflow
 
 RUN pip install --no-cache-dir \
-    "apache-airflow==${AIRFLOW_VERSION}" \
-    -r /tmp/requirements.txt
+    "apache-airflow-providers-amazon" \
+    "apache-airflow-providers-cncf-kubernetes"
