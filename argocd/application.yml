@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-application
+  namespace: argocd
+
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/saranyahbo/nginx-deployment.git
+    targetRevision: feature-nginx-deploy
+    path: kubernetes
+  destination: 
+    server: https://kubernetes.default.svc 
+    namespace: eks-nginx
+  
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
