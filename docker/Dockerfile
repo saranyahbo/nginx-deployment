@@ -1,7 +1,3 @@
-FROM apache/airflow:3.4.0
-
-USER airflow
-
-RUN pip install --no-cache-dir \
-    "apache-airflow-providers-amazon" \
-    "apache-airflow-providers-cncf-kubernetes"
+FROM nginx:stable-alpine
+COPY nginx/index.html /usr/share/nginx/html/index.html
+EXPOSE 80
